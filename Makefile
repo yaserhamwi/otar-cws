@@ -14,7 +14,7 @@ build-image:
 	--build-arg BUILD_PATH=build \
 	--build-arg CF_BUILDPACK=$(CF_BUILDPACK_VERSION) \
 	--build-arg ROOTFS_IMAGE=$(ROOTFS_VERSION) \
-	-t mendix/mendix-buildpack:$(VERSION) .
+	-t ibrahimibrahim/etisalat-otra:$(VERSION) .
 
 test-container:
 	tests/test-generic.sh tests/docker-compose-postgres.yml
