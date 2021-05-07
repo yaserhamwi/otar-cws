@@ -11,7 +11,7 @@ get-sample:
 
 build-image:
 	docker build \
-	--build-arg BUILD_PATH=build \
+	--build-arg BUILD_PATH=code \
 	--build-arg CF_BUILDPACK=$(CF_BUILDPACK_VERSION) \
 	--build-arg ROOTFS_IMAGE=$(ROOTFS_VERSION) \
 	-t ibrahimibrahim/etisalat-otra:$(VERSION) .
