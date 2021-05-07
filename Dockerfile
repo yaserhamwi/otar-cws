@@ -35,9 +35,12 @@ RUN mkdir -p /opt/mendix/buildpack /opt/mendix/build &&\
     echo "Downloading CF Buildpack from ${CF_BUILDPACK_URL}" &&\
     curl -fsSL ${CF_BUILDPACK_URL} -o /tmp/cf-mendix-buildpack.zip && \
     python3 -m zipfile -e /tmp/cf-mendix-buildpack.zip /opt/mendix/buildpack/ &&\
+    cp -R /opt/mendix/buildpack/cf-mendix-buildpack/. /opt/mendix/buildpack/ &&\
     rm /tmp/cf-mendix-buildpack.zip &&\
     chgrp -R 0 /opt/mendix &&\
     chmod -R g=u /opt/mendix
+
+
 
 # Copy python scripts which execute the buildpack (exporting the VCAP variables)
 COPY scripts/compilation scripts/git /opt/mendix/buildpack/
